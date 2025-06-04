@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>투표 시스템</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<h1>간단 투표 시스템</h1>
+
+<section id="admin-section">
+  <h2>관리자: 새 투표 생성</h2>
+  <input type="password" id="admin-password" placeholder="관리자 비밀번호 입력" />
+  <input type="text" id="new-question" placeholder="새 투표 주제 입력" />
+  <button id="create-poll-btn">투표 생성</button>
+  <p id="admin-msg"></p>
+</section>
+
+<section id="poll-section">
+  <h2>투표 참여</h2>
+  <select id="poll-list">
+    <option value="">투표 주제 선택</option>
+  </select>
+
+  <div id="vote-options" style="display:none;">
+    <button class="vote-btn" data-vote="yes">찬성</button>
+    <button class="vote-btn" data-vote="no">반대</button>
+  </div>
+
+  <div id="result" style="margin-top: 20px;"></div>
+</section>
+
+<script src="scripts.js"></script>
+</body>
+</html>
