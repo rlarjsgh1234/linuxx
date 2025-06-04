@@ -1,0 +1,16 @@
+CREATE DATABASE poll_system CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE poll_system;
+
+CREATE TABLE polls (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    question VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE votes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    poll_id INT NOT NULL,
+    vote_option ENUM('yes', 'no') NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (poll_id) REFERENCES polls(id) ON DELETE CASCADE
+);
