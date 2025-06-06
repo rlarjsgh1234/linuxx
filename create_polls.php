@@ -2,8 +2,7 @@
 header('Content-Type: application/json');
 require_once 'db.php';
 
-// 관리자 비밀번호 (간단 예시로 코드에 고정, 실제 운영은 환경변수 등 권장)
-$ADMIN_PASSWORD = 'admin123';
+$ADMIN_PASSWORD = '20224361';
 
 $data = json_decode(file_get_contents('php://input'), true);
 

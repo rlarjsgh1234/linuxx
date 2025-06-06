@@ -96,6 +96,45 @@ voteOptions.addEventListener('click', async (e) => {
     }
 });
 
+const deletePollBtn = document.getElementById('delete-poll-btn');
+
+// 삭제 버튼 클릭 시
+deletePollBtn.addEventListener('click', async () => {
+    const pollId = pollList.value;
+    const password = prompt('관리자 비밀번호를 입력하세요');
+
+    if (!pollId) {
+        alert('삭제할 투표를 선택하세요.');
+        return;
+    }
+    if (!password) {
+        alert('비밀번호가 필요합니다.');
+        return;
+    }
+
+    if (!confirm('정말 이 투표를 삭제하시겠습니까?')) return;
+
+    try {
+        const res = await fetch('delete_poll.php', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({pollId, password})
+        });
+        const data = await res.json();
+        if (data.success) {
+            alert('투표가 삭제되었습니다.');
+            fetchPolls(); // 목록 새로고침
+            resultDiv.innerHTML = '';
+            voteOptions.style.display = 'none';
+        } else {
+            alert('삭제 실패: ' + data.message);
+        }
+    } catch (e) {
+        alert('서버 통신 실패');
+        console.error(e);
+    }
+});
+
 // 투표 결과 불러오기
 async function fetchResults(pollId) {
     try {
