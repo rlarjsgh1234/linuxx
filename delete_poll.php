@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: application/json');
 
-$adminPassword = '1234'; // 관리자 비밀번호 (실제로는 .env나 DB에 넣는 것이 좋음)
+$adminPassword = '20224361'; // 관리자 비밀번호 (실제로는 .env나 DB에 넣는 것이 좋음)
 
 // JSON 파싱
 $input = json_decode(file_get_contents('php://input'), true);
@@ -19,7 +19,7 @@ if (!$pollId) {
 }
 
 // DB 연결
-$conn = new mysqli('localhost', 'root', '', 'vote_db');
+$conn = new mysqli('localhost', 'root', 'rlarjsgh1!', 'poll_system');
 if ($conn->connect_error) {
     echo json_encode(['success' => false, 'message' => 'DB 연결 실패']);
     exit;

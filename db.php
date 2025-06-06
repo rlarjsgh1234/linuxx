@@ -2,7 +2,7 @@
 $host = 'localhost';
 $db   = 'poll_system';
 $user = 'root'; // 필요시 계정에 맞게 변경
-$pass = '';     // 필요시 비밀번호 설정
+$pass = 'rlarjsgh1!';     // 필요시 비밀번호 설정
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";

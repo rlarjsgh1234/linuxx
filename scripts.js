@@ -35,7 +35,7 @@ createPollBtn.addEventListener('click', async () => {
     }
 
     try {
-        const res = await fetch('create_poll.php', {
+        const res = await fetch('create_polls.php', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({password, question})
