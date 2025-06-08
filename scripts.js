@@ -101,7 +101,7 @@ const deletePollBtn = document.getElementById('delete-poll-btn');
 // 삭제 버튼 클릭 시
 deletePollBtn.addEventListener('click', async () => {
     const pollId = pollList.value;
-    const password = prompt('관리자 비밀번호를 입력하세요');
+    const password = prompt('비밀번호를 입력하세요');
 
     if (!pollId) {
         alert('삭제할 투표를 선택하세요.');
